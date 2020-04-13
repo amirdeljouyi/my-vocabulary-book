@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
+
+:root {
+    --main-color: rgb(61, 19, 141);
+    --main-bg-color:rgb(125, 76, 219);
+    --secondary-color:rgb(68, 68, 68);
+    --secondary-bg-color:rgb(248, 248, 248);
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+}
+
+.logo{
+    margin: 0;
+    color: var(--main-color);
+}
+.btn{
+    background-color: var(--main-color);
+    border-radius: 20px;
+}
+.pd-50{
+    padding: 50px;
+}
+.mid{
+    display: inline-block;
+    vertical-align: middle;
+}
+.fill-primary{
+    .MuiFilledInput-root{
+        background-color: var(--main-color) !important;
+        color: white !important;
+        &:hover{
+            background-color: rgb(125, 76, 219) !important;
+            color: white !important;
+        }
+    }
+    .MuiFormLabel-root{
+        color: white !important;
+    }
+}   
+.wdt-fl{
+    width: 100%;
+}
+.secondary-box{
+    color: var(--secondary-color);
+    background-color: var(--secondary-bg-color);
+}
+.link-sec{
+    color: var(--secondary-color) !important;
+}
+.card-1{
+    background-color: rgb(61, 19, 141) !important;
+    color:white !important;
+    .text-2{
+        color:rgb(111, 255, 176) !important;
+    }
+    .text-3{
+        color: rgb(255, 202, 88);
+    }
+    blockquote {
+        border-left: 5px solid rgb(255, 202, 88);
+    }
+}
+
+.card-2{
+    background-color: rgb(255, 202, 88) !important;
+    color:rgb(68, 68, 68) !important;
+    .text-2{
+        color:rgb(111, 255, 176) !important;
+    }
+    .text-3{
+        color: rgb(255, 202, 88);
+    }
+    blockquote {
+        border-left: 5px solid rgb(61, 19, 141);
+    }
+}
+
+blockquote {
+    margin: 20px 0;
+    padding-left: 1.5rem;
+    border-left: 5px solid rgb(255, 202, 88);
+    font-style: italic;
+}
+
+.filter-header{
+    font-weight: bold !important;
+}
+
+.footer{
+    background-color: var(--main-color);
+    color: #ffffff;
+}
