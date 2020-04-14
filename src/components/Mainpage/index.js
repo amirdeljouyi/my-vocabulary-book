@@ -89,8 +89,8 @@ class mainpage extends React.Component {
         this.setState({ ePronunciation: event.target.value })
     };
     handleChangeOnSentences = (event) => {
-        let senteces = event.target.value.split("\n");
-        this.setState({ eSentences: senteces, eSentence: event.target.value })
+        let sentences = event.target.value.split("\n");
+        this.setState({ eSentences: sentences, eSentence: event.target.value })
     };
     handleChangeOnSources = (event) => {
         let sources = event.target.value.split(", ");
@@ -118,29 +118,31 @@ class mainpage extends React.Component {
             word: this.state.eWord,
             meaning: this.state.eMeaning,
             pronunciation: this.state.ePronunciation,
-            senteces: this.state.eSentences,
+            sentences: this.state.eSentences,
             sources: this.state.eSources,
             type: this.state.eType,
             favorite: this.state.eFavorite
         }
-        itemRef.update(item);
-        this.handleClose();
-        this.setState({
-            snackbarTitle: this.state.eWord + ' updated successfully'
-        })
-        this.setState({
-            eID: '',
-            eWord: '',
-            eSenteces: [],
-            eSentence: '',
-            eSources: [],
-            eSource: '',
-            ePronunciation: '',
-            eType: [''],
-            eFavorite: false,
-            eOpenSnackbar: true,
-            eSnackBarSeverity: 'info'
-        });
+        itemRef.update(item
+            , () => {
+                this.handleClose();
+                this.setState({
+                    snackbarTitle: this.state.eWord + ' updated successfully'
+                })
+                this.setState({
+                    eID: '',
+                    eWord: '',
+                    eSenteces: [],
+                    eSentence: '',
+                    eSources: [],
+                    eSource: '',
+                    ePronunciation: '',
+                    eType: [''],
+                    eFavorite: false,
+                    eOpenSnackbar: true,
+                    eSnackBarSeverity: 'info'
+                });
+            });
     }
 
     removeItem = () => {
@@ -185,6 +187,8 @@ class mainpage extends React.Component {
             eWord: word,
             eMeaning: meaning,
             ePronunciation: pronunciation,
+            eSentences: sentences,
+            eSources: sources,
             eSentence: sentences.join('\n'),
             eSource: sources.join(', '),
             eType: type,
@@ -327,7 +331,7 @@ class mainpage extends React.Component {
                     />
                     <Modal />
                 </Box>
-                <Box display="flex" className="secondary-box" flexGrow={1} p={4} spacing={3} >
+                <Box display="flex" className="secondary-box" flexGrow={1} p={3} spacing={3} >
                     <Grid container spacing={3}>
                         <Grid item xs={12} sm={12} md>
                             <FormControl component="fieldset">
@@ -437,6 +441,7 @@ class mainpage extends React.Component {
                                                 {item.meaning}
                                             </Typography>
                                             <Box m={2}>
+                                                {console.log(item.sentences)}
                                                 {item.sentences && item.sentences.map((el) => {
                                                     return (
                                                         <Typography variant="caption" component="blockquote">
@@ -490,8 +495,8 @@ class mainpage extends React.Component {
                     </Button>
                     </ListItem>
                 </Modal>
-                <Snackbar transitionDuration={1000} open={this.state.openSnackbar} autoHideDuration={8000} onClose={this.handleCloseSnackbar}>
-                    <Alert onClose={this.handleCloseSnackbar} severity={this.state.snackBarSeverity}>
+                <Snackbar transitionDuration={1000} open={this.state.eOpenSnackbar} autoHideDuration={8000} onClose={this.handleCloseSnackbar}>
+                    <Alert onClose={this.handleCloseSnackbar} severity={this.state.eSnackBarSeverity}>
                         {this.state.snackbarTitle}
                     </Alert>
                 </Snackbar>

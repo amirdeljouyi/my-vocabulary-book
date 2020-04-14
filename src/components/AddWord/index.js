@@ -27,7 +27,7 @@ class AddWord extends React.Component {
             source: '',
             favorite: false,
             openSnackbar: false,
-            snackBarSeverity : '',
+            snackBarSeverity: '',
             snackbarTitle: ''
         };
         this.handleChangeOnWord = this.handleChangeOnWord.bind(this);
@@ -46,8 +46,8 @@ class AddWord extends React.Component {
         this.setState({ pronunciation: event.target.value })
     };
     handleChangeOnSentences = (event) => {
-        let senteces = event.target.value.split("\n");
-        this.setState({ sentences: senteces, sentence: event.target.value })
+        let sentences = event.target.value.split("\n");
+        this.setState({ sentences: sentences, sentence: event.target.value })
     };
     handleChangeOnSources = (event) => {
         let sources = event.target.value.split(", ");
@@ -61,10 +61,10 @@ class AddWord extends React.Component {
     };
     handleCloseSnackbar = (event, reason) => {
         if (reason === 'clickaway') {
-          return;
+            return;
         }
         this.setState({ openSnackbar: false });
-      };
+    };
 
     handleSubmit(e) {
         e.preventDefault();
@@ -73,28 +73,32 @@ class AddWord extends React.Component {
             word: this.state.word,
             meaning: this.state.meaning,
             pronunciation: this.state.pronunciation,
-            senteces: this.state.sentences,
+            sentences: this.state.sentences,
             sources: this.state.sources,
             type: this.state.type,
             favorite: this.state.favorite
         }
-        itemsRef.push(item);
-        this.props.handleClose();
-        this.setState({
-            snackbarTitle: this.state.word + ' added successfully'
-        })
-        this.setState({
-            word: '',
-            pronunciation: '',
-            senteces: [],
-            sentence: '',
-            sources: [],
-            source: '',
-            type: [''],
-            favorite: false,
-            openSnackbar: true,
-            snackBarSeverity : 'success'
-        });
+        itemsRef.push(item,
+            () => {
+                this.props.handleClose();
+                this.setState({
+                    snackbarTitle: this.state.word + ' added successfully'
+                })
+                this.setState({
+                    word: '',
+                    pronunciation: '',
+                    sentences: [],
+                    sentence: '',
+                    sources: [],
+                    source: '',
+                    type: [''],
+                    favorite: false,
+                    openSnackbar: true,
+                    snackBarSeverity: 'success'
+                });
+            }
+        );
+
     }
     render() {
         return (
@@ -123,7 +127,7 @@ class AddWord extends React.Component {
                 </Modal>
                 <Snackbar transitionDuration={1000} open={this.state.openSnackbar} autoHideDuration={8000} onClose={this.handleCloseSnackbar}>
                     <Alert onClose={this.handleCloseSnackbar} severity={this.state.snackBarSeverity}>
-                        {this.state.snackbarTitle} 
+                        {this.state.snackbarTitle}
                     </Alert>
                 </Snackbar>
             </>

@@ -23,6 +23,9 @@ body{
 }
 .pd-50{
     padding: 50px;
+    @media screen and (max-width:600px){
+        padding: 20px 0px;
+    }
 }
 .mid{
     display: inline-block;
