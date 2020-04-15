@@ -137,7 +137,7 @@ class mainpage extends React.Component {
                     eSources: [],
                     eSource: '',
                     ePronunciation: '',
-                    eType: [''],
+                    eType: ['Noun'],
                     eFavorite: false,
                     eOpenSnackbar: true,
                     eSnackBarSeverity: 'info'
@@ -160,7 +160,7 @@ class mainpage extends React.Component {
             eSources: [],
             eSource: '',
             ePronunciation: '',
-            eType: [''],
+            eType: ['Noun'],
             eFavorite: false,
             eOpenSnackbar: true,
             eSnackBarSeverity: 'info'
@@ -293,7 +293,7 @@ class mainpage extends React.Component {
 
         return (
             <div>
-                <Box display="flex" flexGrow={1} m={2} p={4} spacing={3} >
+                <Box className="search-bar" display="flex" flexGrow={1} m={2} p={4} spacing={3} >
                     <Autocomplete className="wdt-fl" flexGrow={1}
                         id="autocomplete"
                         options={this.state.items.map((option) => {

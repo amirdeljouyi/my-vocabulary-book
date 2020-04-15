@@ -87,11 +87,12 @@ class AddWord extends React.Component {
                 this.setState({
                     word: '',
                     pronunciation: '',
+                    meaining: '',
                     sentences: [],
                     sentence: '',
                     sources: [],
                     source: '',
-                    type: [''],
+                    type: ['Noun'],
                     favorite: false,
                     openSnackbar: true,
                     snackBarSeverity: 'success'

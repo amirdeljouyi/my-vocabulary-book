@@ -8,10 +8,10 @@ import './index.scss'
 import MainPage from '../Mainpage'
 import Footer from '../Footer'
 import AddWord from '../AddWord';
-import { Add } from 'grommet-icons';
 import DocumentMeta from 'react-document-meta';
-import { Container, Button, Box, Link } from '@material-ui/core';
+import { Container, Button, Box, Link, Hidden, Fab } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import AddIcon from '@material-ui/icons/Add';
 import BookIcon from '@material-ui/icons/Book';
 
 
@@ -35,6 +35,7 @@ const theme = createMuiTheme({
         }
     },
 });
+
 
 class App extends React.Component {
     constructor() {
@@ -78,9 +79,12 @@ class App extends React.Component {
                                                     </Link>
                                                 </h2>
                                             </Box>
-                                            <Box item xs alignItems='flex-end' alignContent='flex-end'>
-                                                <Button className="btn" variant="contained" color="primary" onClick={this.handleClickOpen} startIcon={<Add color="#fff" />}>Add a Word</Button>
-                                            </Box>
+                                            <Hidden xsDown>
+                                                <Box item xs alignItems='flex-end' alignContent='flex-end'>
+                                                    <Button className="btn" variant="contained" color="primary" onClick={this.handleClickOpen} startIcon={<AddIcon color="#fff" />}>Add a Word</Button>
+                                                </Box>
+                                            </Hidden>
+
                                         </Box>
                                     </header>
                                     <AddWord showModal={this.state.showModal} handleClose={this.handleClose} />
@@ -89,6 +93,15 @@ class App extends React.Component {
                                     </Switch>
                                 </Router>
                             </Box>
+                            <Hidden smUp>
+                                <Fab onClick={this.handleClickOpen} color="secondary" aria-label="add" style={{
+                                    position: 'fixed',
+                                    bottom: theme.spacing(4),
+                                    right: theme.spacing(4)
+                                }}>
+                                    <AddIcon />
+                                </Fab>
+                            </Hidden>
                         </Container>
                         <Footer></Footer>
                     </ThemeProvider>
