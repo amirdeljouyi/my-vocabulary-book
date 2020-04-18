@@ -70,6 +70,8 @@ const Modal = (props) => {
                         id="meaning"
                         label="meaning"
                         variant="filled"
+                        multiline
+                        rows="4"
                         required
                         fullWidth
                         value={props.meaning}
