@@ -17,7 +17,7 @@ import BookIcon from '@material-ui/icons/Book';
 
 
 const meta = {
-    title: 'My Vocabulary Book',
+    title: 'Werdia',
     meta: {
         charset: 'utf-8',
         name: "viewport",
