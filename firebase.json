@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "werdia",
     "public": "build",
     "ignore": [
       "firebase.json",

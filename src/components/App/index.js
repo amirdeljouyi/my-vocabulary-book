@@ -74,7 +74,7 @@ class App extends React.Component {
                                                     <Link>
                                                         <BookIcon className="mid" color={theme.palette.primary.main} />
                                                         <span className="mid">
-                                                            &nbsp;MY Vocabulary Book
+                                                            &nbsp;Werdia
                                                     </span>
                                                     </Link>
                                                 </h2>
